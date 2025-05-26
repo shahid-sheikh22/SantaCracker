@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Baloo 2", cursive;
+  color: #fff;
+  background-image: url("./assets/dark.avif"); /* default: dark mode background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease, color 0.5s ease;
+}
+canvas {
+  z-index: 0;
+}
+
+h1,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+/* add this */
+.text-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  height: 20%;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+/* extend this */
+h1 {
+  background-image: linear-gradient(
+    to right,
+    #ff6f00,
+    /* Orange (spark/fire) */ #ffca28,
+    /* Bright yellow (burst/flash) */ #ff4081,
+    /* Hot pink (pop) */ #7c4dff,
+    /* Vivid purple (night sky) */ #00e5ff /* Electric blue (flares) */
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s linear infinite;
+}
+h1 {
+  text-shadow: 0 0 5px #ff6f00, 0 0 20px #f80000;
+}
+
+/* add this */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+p {
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 1.5vw;
+  font-family: "Work Sans", sans-serif;
+}
+
+img {
+  z-index: 1;
+  bottom: 5%;
+}
+
+.image-container {
+  position: absolute; /* Add this */
+  bottom: 5%; /* Push to bottom */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+canvas {
+  position: absolute;
+  cursor: pointer;
+  z-index: 0;
+}
+
+img {
+  width: 150px; /* or whatever size you prefer */
+  position: relative;
+  cursor: pointer;
+}
+
+#avatar-instruction {
+  margin-top: 10px;
+  font-size: 1.3vw;
+  color: #fff;
+  font-family: "Chewy", cursive;
+  text-align: center;
+}
+
+body.light-mode #avatar-instruction {
+  color: #222;
+}
+
+/* for mobiles */
+
+/* Light Mode */
+body.light-mode {
+  background-image: url("./assets/light.jpeg"); /* light mode background */
+  color: #111; /* darker text for better readability */
+}
+
+body.light-mode h1 {
+  text-shadow: 0 0 5px #ffeb3b, 0 0 15px #ffffff;
+}
+
+body.light-mode p {
+  color: #222;
+}
+
+#theme-toggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #ff6f00;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff9800;
+  transition: background 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: #ffa726;
+}
+
+/* Light mode override */
+body.light-mode #theme-toggle {
+  background: #ffcc80;
+  color: #111;
+  box-shadow: 0 0 10px #ffd54f;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 10vw; /* Make title smaller on small screens */
+  }
+
+  p {
+    font-size: 4vw; /* Scale subtitle and quote */
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .text-container {
+    top: 3%;
+    height: 25%;
+  }
+
+  .image-container {
+    height: 25%;
+  }
+
+  img {
+    width: 25vw; /* Scale down avatar image */
+    bottom: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 12vw;
+  }
+
+  p {
+    font-size: 5vw;
+  }
+
+  img {
+    width: 35vw;
+  }
+}

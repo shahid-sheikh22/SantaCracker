@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fireworks 🎉</title>
+    <link rel="icon" type="image/x-icon" href="./assets/santa.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="text-container">
+      <h1>Cracker Time!</h1>
+      <p id="quote-text">🎅 Santa is ready to party!</p>
+
+      <button id="theme-toggle">🌙 Dark Mode</button>
+    </div>
+
+    <div class="image-container">
+      <img id="avatar" src="./assets/santa.png" alt="avatar" />
+      <p id="avatar-instruction">Click on the avatar to pick your hero</p>
+    </div>
+
+    <canvas id="canvas-background"></canvas>
+    <canvas id="canvas-fireworks"></canvas>
+    q11
+    <script>
+      const toggleBtn = document.getElementById("theme-toggle");
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+        window.redrawBackground();
+      });
+    </script>
+    <script src="avatar-toggle.js"></script>
+    <script src="canvas-background.js"></script>
+    <script src="canvas-fireworks.js"></script>
+    <script></script>
+  </body>
+</html>
